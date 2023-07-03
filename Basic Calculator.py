@@ -20,7 +20,18 @@ for char in input_2:
         operat[m] = char
         m += 1
 
-#this code words, but order of operations does not exist
+#this code below is the plan for coding order of operations. 
+
+for key in operat:
+    if operat[key] == "X":
+        if key == 1:
+            ans1 = int(numbers[key]) * int(numbers[key + 1])
+        else:
+            ans1 = int(numbers[key - 1]) * int(numbers[key + 1])
+    
+print (ans1)
+
+#this below code works, but order of operations does not exist
 #for example, 10+10x20 will output 400 when it should output 210
 
 if operat[1] == "X" or operat[1] == "x" or operat[1] == "*":
@@ -48,4 +59,4 @@ else:
     print (input + " = " + str(ans1))
     print()
 
-#this is a test for trying out branches in github
+
