@@ -24,39 +24,48 @@ for char in input_2:
         numbers[n] = ""
         operat[m] = ""
         operat[m] = char
-        m += 1
-
+        m += 1  
 for key in operat:
-    if operat[key] == "X" or operat[key] == "x":
-        if key == 1:
-            answer[key] = int(numbers[key]) * int(numbers[key + 1])
-            numbers[key] = answer[key]
-        else:
-            answer[key] = int(numbers[key - 1]) * int(numbers[key + 1])
-            numbers[key] = answer[key]
-    if operat[key] == "/":
-        if key == 1:
-            answer[key] = int(numbers[key]) / int(numbers[key + 1])
-            numbers[key] = answer[key]
-        else:
-            answer[key] = int(numbers[key - 1]) / int(numbers[key + 1])
-            numbers[key] = answer[key]
+    if operat[key] in "Xx*/":
+        if operat[key] == "X" or operat[key] == "x" or operat[key] == "*":
+            if key == 1:
+                    answer[key] = int(numbers[key]) * int(numbers[key + 1])
+                    numbers[key] = answer[key]
+            else:
+                answer[key] = int(numbers[key - 1]) * int(numbers[key + 1])
+                numbers[key] = answer[key]
+            operat[key] = ""
+        if operat[key] == "/":
+            if key == 1:
+                answer[key] = int(numbers[key]) / int(numbers[key + 1])
+                numbers[key] = answer[key]
+            else:
+                answer[key] = int(numbers[key - 1]) / int(numbers[key + 1])
+                numbers[key] = answer[key]
+            operat[key] = ""
+print (numbers)
+for key in operat:
     if operat[key] == "+":
         if key == 1:
             answer[key] = int(numbers[key]) + int(numbers[key + 1])
             numbers[key] = answer[key]
         else:
-            answer[key] = int(numbers[key - 1]) + int(numbers[key + 1])
+            answer[key] = int(numbers[1]) + int(numbers[key + 1])
             numbers[key] = answer[key]
     if operat[key] == "-":
         if key == 1:
             answer[key] = int(numbers[key]) - int(numbers[key + 1])
             numbers[key] = answer[key]
         else:
-            answer[key] = int(numbers[key - 1]) - int(numbers[key + 1])
+            answer[key] = int(numbers[1]) - int(numbers[key + 1])
             numbers[key] = answer[key]
 
 final_answer = answer.copy()
+
+print (numbers)
+print(operat)
+print (answer)
+
 
 for key in answer:
     if  answer[key] == "":
