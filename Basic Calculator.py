@@ -3,19 +3,15 @@ input = input("")
 input_2 = input.replace(" ","")
 
 #defining dictionaries and placeholder variables (n and m)
-
 numbers = {1:""}
 n = 1
 m = 1
-
-
 operat = {}
 ans2 = 0
 answer = {}
 final = 0
 
 #loop to turn intput into usable variables in dictionaries
-
 for char in input_2:
     if char in "0123456789":
         numbers[n] += char
@@ -25,6 +21,8 @@ for char in input_2:
         operat[m] = ""
         operat[m] = char
         m += 1  
+
+#first for loop to calculate multiplication and division first
 for key in operat:
     if operat[key] in "Xx*/":
         if operat[key] == "X" or operat[key] == "x" or operat[key] == "*":
@@ -44,6 +42,10 @@ for key in operat:
                 numbers[key] = answer[key]
             operat[key] = ""
 print (numbers)
+print (operat)
+print (answer)
+print()
+#second for loop to calculate addition and subtraction
 for key in operat:
     if operat[key] == "+":
         if key == 1:
@@ -60,16 +62,10 @@ for key in operat:
             answer[key] = int(numbers[1]) - int(numbers[key + 1])
             numbers[key] = answer[key]
 
-final_answer = answer.copy()
-
 print (numbers)
-print(operat)
+print (operat)
 print (answer)
 
-
-for key in answer:
-    if  answer[key] == "":
-        del final_answer[key]
-print (final_answer[list(final_answer.keys())[-1]])
+print (str(input) + " = " + str(answer[list(answer.keys())[-1]]))
 
 
